@@ -63,7 +63,7 @@ int i2s_write_sample_nb(uint8_t sample){
   return i2s_write_bytes((i2s_port_t)i2s_num, (const char *)&sample, sizeof(uint8_t), 100);
 }
 /* read 4 bytes of data from wav file */
-int read4bytes(File file, uint32_t *chunkId){
+int read4bytes(File &file, uint32_t *chunkId){
   int n = file.read((uint8_t *)chunkId, sizeof(uint32_t));
   return n;
 }
@@ -74,11 +74,11 @@ int readbyte(File &file, uint8_t *chunkId){
 }
 
 /* these are function to process wav file */
-int readRiff(File file, wavRiff_t *wavRiff){
+int readRiff(File &file, wavRiff_t *wavRiff){
   int n = file.read((uint8_t *)wavRiff, sizeof(wavRiff_t));
   return n;
 }
-int readProps(File file, wavProperties_t *wavProps){
+int readProps(File &file, wavProperties_t *wavProps){
   int n = file.read((uint8_t *)wavProps, sizeof(wavProperties_t));
   return n;
 }
