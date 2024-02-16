@@ -62,7 +62,7 @@ int i2s_write_sample_nb(uint32_t sample){
   return i2s_write_bytes((i2s_port_t)i2s_num, (const char *)&sample, sizeof(uint32_t), 100);
 }
 /* read 4 bytes of data from wav file */
-int read4bytes(File file, uint32_t *chunkId){
+int read4bytes(File &file, uint32_t *chunkId){
   int n = file.read((uint8_t *)chunkId, sizeof(uint32_t));
   return n;
 }
