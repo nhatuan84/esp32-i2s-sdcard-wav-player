@@ -68,7 +68,7 @@ int read4bytes(File file, uint32_t *chunkId){
   return n;
 }
 
-int readbyte(File file, uint8_t *chunkId){
+int readbyte(File &file, uint8_t *chunkId){
   int n = file.read((uint8_t *)chunkId, sizeof(uint8_t));
   return n;
 }
