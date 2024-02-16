@@ -68,11 +68,11 @@ int read4bytes(File &file, uint32_t *chunkId){
 }
 
 /* these are function to process wav file */
-int readRiff(File file, wavRiff_t *wavRiff){
+int readRiff(File &file, wavRiff_t *wavRiff){
   int n = file.read((uint8_t *)wavRiff, sizeof(wavRiff_t));
   return n;
 }
-int readProps(File file, wavProperties_t *wavProps){
+int readProps(File &file, wavProperties_t *wavProps){
   int n = file.read((uint8_t *)wavProps, sizeof(wavProperties_t));
   return n;
 }
